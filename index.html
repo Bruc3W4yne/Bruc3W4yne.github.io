@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>A pour l'effort</title>
+    <script src="nav.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body id="Front-page">
@@ -15,8 +17,19 @@
         <h2 id="sub-title" class="title">Isak W Midtvedt</h2>
     </header>
 
+    <button class="nav-toggle"aria-controls="primary-navigation" aria-expanded="false">
+        <span class="visually-hidden">Navigation</span>
+
+        <div class="nav-bar" ></div>
+        <div class="nav-bar" ></div>
+        <div class="nav-bar" ></div>
+        
+    </button>
+
+    
+
     <nav>
-        <ul id="primary-nav" class="primary-nav flex">
+        <ul id="primary-nav" class="primary-nav" visible-desktop="false" visible-mobile="false">
             <li class="active">
                 <a href="index.html">
                     Home
@@ -35,5 +48,7 @@
                 </a>
         </ul>
     </nav>
+
+    <div class="test"></div>
 </body>
 </html>
