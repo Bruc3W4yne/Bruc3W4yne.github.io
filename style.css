@@ -1,27 +1,17 @@
 :root {
-    --background-color: rgb(0, 0, 10);
+    --background-color: rgb(4, 4, 4);
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
     --nav-background-mobile: hsla(240 80% 90% / 0.1);
     --gap: 10px;
+    --blur: 0rem;
     
 }   
 
 body {
-    background-color: var(--background-color);
     margin: 0;
     height: 100vh;
+    background-color: var(--background-color);
 }
-
-
-header {
-    background-image: url("/bghero.jpg");
-    background-position: center, center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100vh;
-}
-
 
 @media (max-width: 75em) {
     body .primary-nav {
@@ -33,7 +23,25 @@ header {
         --gap: 5em;
 
         background: var(--nav-background-mobile);
+
+        transform: translateX(100%);
+        transition: all 1200ms cubic-bezier(.46,.03,.52,.96);
+        opacity: 1;
     }
+
+    .primary-nav[visible-mobile="true"] {
+        transform: translateX(0%);
+    }
+}
+
+
+header {
+    position: relative;
+    height: 100vh;
+    background-image: url("/bghero.jpg");
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -50,37 +58,99 @@ h1, h2, a, p, span {
     color: white;
 }
 
-.flex {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap, 1rem)
+.primary-nav[visible-desktop="true"] {
+    opacity: 0;
 }
 
-ul {
-    position: fixed;
-    inset: 0 0 0 0;
-    text-align: right;
+.nav-toggle {
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: 1000;
+
+    width: 3em;
+    aspect-ratio: 1;
+    background: none;
+    border: none;
+
+    cursor: pointer;
 }
+
+.nav-bar {
+    position: absolute;
+    top:0;
+    left:0;
+
+    background-color: white;
+    width: 80%;
+    height: 3px;
+    
+    transition: all 450ms ease-in-out;
+}
+
+.nav-bar:nth-child(2) {
+    transform: translateY(10px);
+}
+
+.nav-bar:nth-child(3) {
+    transform: translateY(20px);
+}
+
 
 .primary-nav {
-    list-style: none;
+    position: fixed;
+    inset: 0 0 0 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+
     margin: 0;
+    height: 100vh;
+    
+    text-align: right;
+    gap: var(--gap, 1rem);
+
     justify-content: center;
+    list-style: none;
+    
     background: var(--nav-background-desktop);
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
+    
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
 }
-
 
 .primary-nav a {
     text-decoration: none;
     font-size: 30px;
-    transition: all 350ms ease-in-out;
     margin-right: 55vw;
+    transition: all 350ms ease-in-out;
 }
 
 a:hover {
     color: #B6003D;
 }
 
+
+.no-scroll {
+    overflow: hidden;
+}
+
+
+/* hentet fra https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+Denne klassen brukes til å skjule tekst vi ikke vil at brukeren skal se,
+men som vi fortsatt vil at en evt screenreader(voiceover o.l.) skal kunne lese.flex
+Dette er spesielt viktig når det kommer til f.eks knapper eller skjemaer som ikke
+har noe tekst på seg til vanlig, men som vi vil at en bruker skal kunne interaktere med */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
 
