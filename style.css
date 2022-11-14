@@ -3,9 +3,12 @@
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
     --nav-background-mobile: hsla(240 80% 90% / 0.1);
     --gap: 10px;
-    --blur: 0rem;
     
-}   
+}
+
+html {
+    overflow-y: scroll;
+}
 
 body {
     margin: 0;
@@ -13,7 +16,32 @@ body {
     background-color: var(--background-color);
 }
 
-@media (max-width: 75em) {
+main {
+    margin: 0;
+    height: 100%;
+}
+
+main > article {
+    display: grid;
+    height: 50%;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 10%;
+}
+
+main > article:nth-of-type(2) {
+    display: grid;
+    height: 50%;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 10%;
+}
+
+main > article > .image-section, .text-section {
+    height: 100%;
+    border: 2px solid white;
+    background-color: #B6003D;
+}
+
+@media (max-width: 55em) {
     body .primary-nav {
         inset: 0 0 0 30%;
         padding: min(25vh, 10rem) 2em;
@@ -27,6 +55,14 @@ body {
         transform: translateX(100%);
         transition: all 1200ms cubic-bezier(.46,.03,.52,.96);
         opacity: 1;
+    }
+
+    .delay {
+        transition: all 1s;
+    }
+
+    .menu-circle {
+        opacity: 0;
     }
 
     .primary-nav[visible-mobile="true"] {
@@ -59,7 +95,7 @@ h1, h2, a, p, span {
 }
 
 .primary-nav[visible-desktop="true"] {
-    opacity: 0;
+    opacity: 1;
 }
 
 .nav-toggle {
@@ -96,6 +132,18 @@ h1, h2, a, p, span {
     transform: translateY(20px);
 }
 
+.nav-close:nth-of-type(1) {
+    opacity: 0;
+}
+
+.nav-close:nth-of-type(2) {
+    transform: rotate(45deg);
+}
+
+.nav-close:nth-of-type(3) {
+    transform: rotate(-45deg);
+}
+
 
 .primary-nav {
     position: fixed;
@@ -118,8 +166,37 @@ h1, h2, a, p, span {
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
     
-    transition: opacity 1s ease-in-out;
+    transition: opacity 350ms ease-in-out;
+    opacity: 0;
+}
+
+li {
+    opacity: 0;
+}
+
+.opacity {
     opacity: 1;
+    transition: opacity 250ms ease-in;
+}
+
+.opacity:nth-of-type(1) {
+    transition-delay: 500ms;
+}
+
+.opacity:nth-of-type(2) {
+    transition-delay: 700ms;
+}
+
+.opacity:nth-of-type(3) {
+    transition-delay: 900ms;
+}
+
+.opacity:nth-of-type(4) {
+    transition-delay: 1100ms;
+}
+
+.opacity:nth-of-type(5) {
+    transition-delay: 600ms;
 }
 
 .primary-nav a {
@@ -133,21 +210,61 @@ a:hover {
     color: #B6003D;
 }
 
-
 .no-scroll {
     overflow: hidden;
     touch-action: none;
 }
 
-
-
 .test {
-    width: 2000px;
+    width: 99vw;
     height: 500px;
     background: red;
 }
 
+.menu-circle {
+    position: absolute;
+    top: 50%;
+    left: calc(50vw - 5px);
+    transform: translate(-50%, -50%);
+    
+    width: 100px;
+    height: 100px;
 
+    border: 3px solid #B6003D;
+    border-radius: 50%;
+
+    z-index: 10000;
+    opacity: 0;
+}
+
+
+.animate-circle{
+    animation-delay: 1600ms;
+    animation-name: menu-circle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.animate-circle-big {
+    animation-delay: 900ms;
+    animation-name: menu-drop;
+    animation-timing-function: ease-out;
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    z-index: -10;
+}
+
+@keyframes menu-circle{
+    0% {width: 0; height: 0; opacity: 0;}
+    25% {opacity: 1;}
+    100% {width: 100px; height: 100px; opacity: 1;}
+}
+
+@keyframes menu-drop {
+    0%  {width: 0px; height: 0px; opacity: 0;}
+    45% {opacity: 1;}
+    100% {width: 150vh; height: 150vh; opacity: 0;}
+}
 
 
 
