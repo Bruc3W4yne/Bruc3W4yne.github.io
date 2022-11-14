@@ -31,13 +31,7 @@ header {
         justify-content: flex-start;
         --gap: 5em;
 
-        background: hsla(0 0% 70% / 10%);
-    }
-    @supports(backdrop-filter: blur(1rem)) {
-        .primary-nav {
-            background: steelblue;
-            backdrop-filter: blur(1rem);
-        }
+        background: hsla(0 0% 100% / 0.1);
     }
 }
 
@@ -77,8 +71,6 @@ ul {
     list-style: none;
     margin: 0;
     justify-content: center;
-    background: var(--nav-background);
-    backdrop-filter: blur(1rem);
 }
 
 
