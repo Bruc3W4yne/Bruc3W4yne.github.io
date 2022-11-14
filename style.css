@@ -139,6 +139,18 @@ a:hover {
 }
 
 
+
+.test {
+    width: 2000px;
+    height: 500px;
+    background: red;
+}
+
+
+
+
+
+
 /* hentet fra https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 Denne klassen brukes til å skjule tekst vi ikke vil at brukeren skal se,
 men som vi fortsatt vil at en evt screenreader(voiceover o.l.) skal kunne lese.flex
