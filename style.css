@@ -1,5 +1,5 @@
 :root {
-    --background-color: rgb(4, 4, 4);
+    --background-color: #040404;
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
     --nav-background-mobile: hsla(240 80% 90% / 0.1);
     --gap: 10px;
@@ -8,17 +8,24 @@
 
 html {
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     height: 100vh;
     background-color: var(--background-color);
+    font-family: 'Clarkson', sans-serif;
 }
 
 main {
     margin: 0;
     height: 100%;
+}
+
+.intro-content {
+    height: 100vh;
+    background-color: rgb(44, 44, 44);
 }
 
 main > article {
@@ -99,9 +106,9 @@ h1, h2, a, p, span {
 }
 
 .nav-toggle {
-    position: absolute;
-    top: 3em;
-    right: 3em;
+    position: fixed;
+    top: 20px;
+    right: 15px;
     z-index: 1000;
 
     width: 3em;
@@ -114,22 +121,21 @@ h1, h2, a, p, span {
 
 .nav-bar {
     position: absolute;
-    top:0;
-    left:0;
 
     background-color: white;
-    width: 80%;
+    width: 30px;
     height: 3px;
+    border-radius: 20q 0q 20q 0;
     
     transition: all 450ms ease-in-out;
 }
 
 .nav-bar:nth-child(2) {
-    transform: translateY(10px);
+    top: 10px;
 }
 
 .nav-bar:nth-child(3) {
-    transform: translateY(20px);
+    transform: translateY(10px);
 }
 
 .nav-close:nth-of-type(1) {
@@ -224,7 +230,7 @@ a:hover {
 .menu-circle {
     position: absolute;
     top: 50%;
-    left: calc(50vw - 5px);
+    left: 50%;
     transform: translate(-50%, -50%);
     
     width: 100px;
@@ -250,7 +256,7 @@ a:hover {
     animation-name: menu-drop;
     animation-timing-function: ease-out;
     animation-duration: 1.25s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
     z-index: -10;
 }
 
@@ -262,8 +268,8 @@ a:hover {
 
 @keyframes menu-drop {
     0%  {width: 0px; height: 0px; opacity: 0;}
-    45% {opacity: 1;}
-    100% {width: 150vh; height: 150vh; opacity: 0;}
+    25% {opacity: 1;}
+    100% {width: 140vh; height: 140vh; opacity: 0;}
 }
 
 
