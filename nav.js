@@ -13,6 +13,7 @@ navToggle.addEventListener("click", () => {
     const visible = navBar.getAttribute("visible-desktop")
     const visibleMobile = navBar.getAttribute("visible-mobile")
     var width = body.clientWidth;
+    console.log(width)
 
     body.classList.toggle("no-scroll")
     
@@ -32,7 +33,7 @@ navToggle.addEventListener("click", () => {
         navCircleBig.classList.toggle("animate-circle-big")
     }
 
-    if (visibleMobile === "false" && width <= 1183) {
+    if (visibleMobile === "false" && width < 1184) {
         navBar.setAttribute("visible-mobile", true)
     } else {
         navBar.setAttribute("visible-mobile", false)

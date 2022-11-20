@@ -2,20 +2,36 @@
     --background-color: #040404;
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
     --nav-background-mobile: hsla(240 80% 90% / 0.1);
+    --main-background-color: linear-gradient(180deg, rgb(4, 4, 4), rgb(100, 100, 100));
     --gap: 10px;
     
 }
 
 html {
-    overflow-y: scroll;
+    overflow-y: initial;
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
     margin: 0;
-    height: 100vh;
+    height: 500vh;
     background-color: var(--background-color);
     font-family: 'Clarkson', sans-serif;
+}
+
+.line-container {
+    position: absolute;
+    width: 100%;
+    height: 600vh;
+    text-align: center;
+    overflow: hidden;
+    z-index: 100000;
+}
+
+svg {
+    display: inline-block;
+    height: 100%;
 }
 
 main {
@@ -23,32 +39,34 @@ main {
     height: 100%;
 }
 
-.intro-content {
+main > section {
+    position: relative;
+    display: grid;
     height: 100vh;
-    background-color: rgb(44, 44, 44);
+    grid-template-columns: 1fr 1fr;
 }
 
-main > article {
-    display: grid;
-    height: 50%;
-    grid-template-columns: 1fr 2fr;
-    margin-top: 10%;
+#intro-content {
+    background-color: wheat;
 }
 
-main > article:nth-of-type(2) {
-    display: grid;
-    height: 50%;
-    grid-template-columns: 2fr 1fr;
-    margin-top: 10%;
+.image-section {
+    margin-bottom: 125px;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-main > article > .image-section, .text-section {
-    height: 100%;
-    border: 2px solid white;
-    background-color: #B6003D;
+
+.text-section {
+    margin-top: 40vh;
+    margin-left: 12.5vw;
+
+    max-width: 55ch;
 }
 
-@media (max-width: 55em) {
+@media (max-width: 75em) {
     body .primary-nav {
         inset: 0 0 0 30%;
         padding: min(25vh, 10rem) 2em;
@@ -60,12 +78,8 @@ main > article > .image-section, .text-section {
         background: var(--nav-background-mobile);
 
         transform: translateX(100%);
-        transition: all 1200ms cubic-bezier(.46,.03,.52,.96);
+        transition: transform 700ms cubic-bezier(.46,.03,.52,.96);
         opacity: 1;
-    }
-
-    .delay {
-        transition: all 1s;
     }
 
     .menu-circle {
@@ -75,6 +89,8 @@ main > article > .image-section, .text-section {
     .primary-nav[visible-mobile="true"] {
         transform: translateX(0%);
     }
+
+    
 }
 
 
@@ -97,9 +113,11 @@ header {
 #sub-title {
     padding-top: 0;
 }
-h1, h2, a, p, span {
+
+h1, h2, h4,  a, p, span {
     color: white;
 }
+
 
 .primary-nav[visible-desktop="true"] {
     opacity: 1;
@@ -212,7 +230,8 @@ li {
     transition: all 350ms ease-in-out;
 }
 
-a:hover {
+a:hover,
+a:focus  {
     color: #B6003D;
 }
 
@@ -271,9 +290,6 @@ a:hover {
     25% {opacity: 1;}
     100% {width: 140vh; height: 140vh; opacity: 0;}
 }
-
-
-
 
 /* hentet fra https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 Denne klassen brukes til å skjule tekst vi ikke vil at brukeren skal se,
