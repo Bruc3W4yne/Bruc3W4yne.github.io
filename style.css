@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Yrsa:wght@300&display=swap');
+
 :root {
     --background-color: #040404;
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
@@ -10,47 +12,13 @@
 html {
     overflow-y: initial;
     scroll-behavior: smooth;
-    min-height: 100%;
 }
 
 body {
-    margin: 0;
-    height: 500vh;
-    background-color: var(--background-color);
-    font-family: 'Clarkson', sans-serif;
+    margin: 0px;
+    padding: 0px;
     overflow-x: hidden;
-}
-
-main {
-    margin: 0;
-    height: 100%;
-}
-
-main > section {
-    position: relative;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr;
-}
-
-#intro-content {
-    background-color: wheat;
-}
-
-.image-section {
-    margin-bottom: 125px;
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-
-.text-section {
-    margin-top: 40vh;
-    margin-left: 12.5vw;
-
-    max-width: 55ch;
+    background-color: #2c2c2c;
 }
 
 @media (max-width: 75em) {
@@ -75,35 +43,118 @@ main > section {
 
     .primary-nav[visible-mobile="true"] {
         transform: translateX(0%);
-    }
-
-    
+    }    
 }
 
-
-header {
+.hero-image {
     position: relative;
     height: 100vh;
-    background-image: url("/bghero.jpg");
+    background-image: url("img/DALL·E\ 2022-12-01\ 16.51.06\ -\ Beautiful\ trees\ and\ plants\ in\ front\ of\ luxury\ hotel\ .png");
     background-position: center, center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -3;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 30%;    
+}
+svg {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+video {
+    width: 100%;
+    height: auto;
+    animation: pathAnimation 2.2s linear forwards;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 
-.title {
-    padding-top: 50vh;
-    text-align: center;
-    line-height: 15px;
+#text-overlay > #title {
+    font-size: 500px;
+}
+
+
+.wrapper> svg {
+    position: absolute;
+    stroke-dashoffset: 2100;
+    stroke-dasharray: 2100;
+    animation-name: animate;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+@keyframes animate {
+    0% {stroke-dashoffset: 2100;}
+    100%{stroke-dashoffset: 0; fill: red}
+}
+
+@keyframes pathAnimation {
+    0% {clip-path: none; opacity: 0;}
+    90%{opacity: 0;}
+    100%{clip-path: path("M 135 319.2 L 81.6 468.6 L 130.2 474.6 A 35.048 35.048 0 0 1 131.202 480.314 Q 131.886 487.499 130.209 496.748 A 90.007 90.007 0 0 1 130.2 496.8 Q 104.213 495.563 83.897 495.176 A 911.964 911.964 0 0 0 66.6 495 A 705.513 705.513 0 0 0 58.577 495.057 Q 41.175 495.263 1.8 496.2 Q -1.793 485.421 1.786 474.642 A 37.741 37.741 0 0 1 1.8 474.6 L 41.4 467.4 Q 51 453 65.4 414 L 220.2 0 L 241.2 0 L 415.2 468.6 L 463.8 474.6 A 35.048 35.048 0 0 1 464.802 480.314 Q 465.486 487.499 463.809 496.748 A 90.007 90.007 0 0 1 463.8 496.8 Q 426 495 379.2 495 A 2567.612 2567.612 0 0 0 350.906 495.169 Q 338.203 495.309 323.977 495.567 A 5284.263 5284.263 0 0 0 294 496.2 Q 290.407 485.421 293.986 474.642 A 37.741 37.741 0 0 1 294 474.6 L 343.8 467.4 L 291 319.2 L 135 319.2 Z M 214.8 90.6 L 214.2 90.6 Q 207 118.8 190.8 164.4 L 145.8 289.2 L 280.2 289.2 L 236.4 164.4 Q 223.8 127.8 214.8 90.6 Z");}
+}
+
+#background-text {
+    position: absolute;
+    opacity: 0.1;
+    font-size: 150px;
+    top: -165px;
+    left: 36vw;
+}
+
+#title {
+    position: relative;
+    top: 20px;
+    margin: 40px 0 0 0;
+    font-size: 50px;
 }
 
 #sub-title {
-    padding-top: 0;
+    margin: 20px;
+}
+
+#intro {
+    position: relative;
+    height: 99vh;
+}
+
+#intro > p {
+    position: relative;
+    left: calc(50vw - 25ch);
+    max-width: 50ch;
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.images > img {
+    width: 500px;
+    height: 600px;
+    margin: 55px 20px 0 20px;
 }
 
 h1, h2, h4,  a, p, span {
     color: white;
+    font-family: "Yrsa", serif;
 }
+
 
 
 .primary-nav[visible-desktop="true"] {
@@ -148,7 +199,8 @@ h1, h2, h4,  a, p, span {
 }
 
 .nav-close:nth-of-type(2) {
-    transform: rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
+
 }
 
 .nav-close:nth-of-type(3) {
@@ -207,7 +259,7 @@ li {
 }
 
 .opacity:nth-of-type(5) {
-    transition-delay: 600ms;
+    transition-delay: 1300ms;
 }
 
 .primary-nav a {
@@ -227,12 +279,6 @@ a:focus  {
     touch-action: none;
 }
 
-.test {
-    width: 99vw;
-    height: 500px;
-    background: red;
-}
-
 .menu-circle {
     position: absolute;
     top: 50%;
@@ -248,7 +294,6 @@ a:focus  {
     z-index: 10000;
     opacity: 0;
 }
-
 
 .animate-circle{
     animation-delay: 1600ms;
@@ -278,18 +323,4 @@ a:focus  {
     100% {width: 140vh; height: 140vh; opacity: 0;}
 }
 
-/* hentet fra https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
-Denne klassen brukes til å skjule tekst vi ikke vil at brukeren skal se,
-men som vi fortsatt vil at en evt screenreader(voiceover o.l.) skal kunne lese.flex
-Dette er spesielt viktig når det kommer til f.eks knapper eller skjemaer som ikke
-har noe tekst på seg til vanlig, men som vi vil at en bruker skal kunne interaktere med */
-.visually-hidden:not(:focus):not(:active) {
-    clip: rect(0 0 0 0); 
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap; 
-    width: 1px;
-  }
 
