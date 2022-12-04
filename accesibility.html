@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <title>A pour l'effort</title>
+    <script src="/script/nav.js" defer></script>
+</head>
+<body id="bodySecondary">
+
+    <button class="nav-toggle"aria-controls="primary-navigation" aria-expanded="false" aria-label="Navigation">
+        <div class="nav-bar" ></div>
+        <div class="nav-bar" ></div>
+        <div class="nav-bar" ></div>
+    </button>
+    <nav>
+        <ul id="primary-nav" class="primary-nav" visible-desktop="false" visible-mobile="false">
+            <li class="active">
+                <a href="index.html">
+                    Home   
+                </a>
+            <li>
+                <a href="booking.html">
+                    Booking  
+                </a>
+            <li>
+                <a href="restaurant.html">
+                    Restaurant
+                </a>
+            <li>
+                <a href="accesibility.html">
+                    Accesibility
+                </a>
+            <li>
+                <a href="topical.html">
+                    Topical
+                </a>
+            <li>
+                <div class="menu-circle"></div>
+                <div class="menu-circle big"></div>
+        </ul>
+    </nav>
+
+    <section class="heroImage accesibility">
+        <div class="blur">
+            <h1 id="headerPage">Accesibility</h1>
+        </div>
+    </section>
+    
+    <article id="accesibility-text">
+        <div class="accesibilityText">
+            <h1>Accesibility</h1>
+            <hr>
+            <p id="main-text">I tested my site for accesibility in several ways. The first and
+                easiest way to test it is to use something along the lines of
+                WAVE web accesibility Evaluation Tool. It tells you the most glaring
+                errors such as low contrast, heading level skipping, no alt text, broken links and more
+                WAVE often picks out any A and AA-level errors which is what
+                is most important when it comes to making the web accesible.
+                <br>
+                <br>
+                I Then went on to use NVDA, a screen reader tool ment to help those
+                with visual impairment. This is one of the broadest accessibility needs
+                to adress so I chose to focus on that to begin with. Using the tool
+                I was able to map out what controls worked and what didnt. I was then able
+                to know which elements to add the ARIA items to; such as Aria-label and Aria-describedby.
+                <br>
+                <br>
+                Other than these steps I also kept in mind contrast and legibility from the get go.
+                Unlike many other things, accessibility is something that one needs to keep in mind
+                from the start, as it is often time consuming to change underway and also can lead to
+                some conflict around the use of different types of elements so be it buttons or others.
+                
+            </p>
+        </div>
+    </article>
+</body>
+</html>

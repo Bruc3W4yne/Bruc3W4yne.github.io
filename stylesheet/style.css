@@ -368,25 +368,11 @@ a:focus  {
     z-index: -10;
 }
 
-footer {
-    position: absolute;
-    height: 180px;
-    width: 100vw;
-
-    display: flex;
-
-    background-color: #15151e;
-    margin-top: auto;
-}
-
-.footer {
-    list-style: none;
-}
-
 #bodySecondary {
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
+    display: flex;
 
     background-color: #c3c3c3;
     z-index: -1;
@@ -494,7 +480,7 @@ hr {
     
 }
 
-span {
+.cardButton {
     display: block;
     color: black;
     padding: 20px;
@@ -505,7 +491,7 @@ span {
     transition: background-color 500ms ease-in-out;
 }
 
-span:hover {
+.cardButton:hover {
     background-color: black;
     color: white;
 }
@@ -544,55 +530,123 @@ span:hover {
     left: 50%;
     transform: translate(-50%);
     margin-top: 0;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+#border-span {
+    border: 2px solid grey;
+    padding: 20px;
+}
+
+#border-span > a {
+    text-decoration: none;
 }
 
 #booking-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
     grid-row-gap: 60px;
     margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .bookingCard {
     position: relative;
     left: 50%;
+
+    transform: translate(-50%);
     
-    height: 30vh;
+    min-height: 35vh;
+    max-width: 50vw;
+    margin: 0;
+    padding: 0;
 
     box-shadow: 10px 10px 10px 10px #9a9a9a;
     background-color: #ebebeb;
 }
 
-* > img {
-    position: relative;
-    margin-left: 180px;
-    height: 30vh;
+.bookingCard > img {
+    position: absolute;
+    top: 0;
+    margin-left: calc(50vw - 35vh);
+    height: 35vh;
 }
 
 #booking-cards > * > h1, 
 #booking-cards > * > p {
     margin-left: 40px;
-    max-width: 45ch;
+    max-width: 45ch;    
 }
+
+.cardTitle {
+    font-size: 35px;
+}
+
+.paragraphBooking {
+    font-size: 25px;
+    opacity: 1;
+    width: 30ch;
+}
+
 
 #info-rooms {
     list-style: none;
 }
 
-#info-rooms > li {
-    opacity: 1;
-}
-
-#info-rooms > li > p {
+.paragraphBooking > p {
     border-bottom: 1px solid #dddd;
     margin: 0px;
-    width: 20vw;
+    width: 30vw;
 }
 
-#info-rooms > li > p:hover {
+.paragraphBooking > p:hover {
     background-color: #e1e1e1;
+}
+
+.push {
+    position: absolute;
+    left: min(40vw, 400px);
+}
+
+.accesibility {
+    background-image: url("/img/heroImage.png");
+}
+
+#accesibility-text {
+    position: absolute;
+    height: 70vh;
+    top: 30vh;
+    left: 50%
+}
+
+.accesibilityText {
+    top: 30vh;
+    left: 50%;
+
+    transform: translate(-50%);
+
+    width: 25vw;
+    height: 37vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    background-color: white;
+    box-shadow: 10px 10px 10px 10px #9a9a9a;
+
+    text-align: center;
+}
+
+.accesibilityText > h1 {
+    font-size: 35px;
+    margin: 0;
+}
+
+#main-text {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 20px;
+    max-width: 50ch;
 }
 
 @keyframes menu-circle{
