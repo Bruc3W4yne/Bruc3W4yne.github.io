@@ -1,1 +1,0 @@
-Stor A i midten som sakte loader inn, video spiller i bakgrunnen
