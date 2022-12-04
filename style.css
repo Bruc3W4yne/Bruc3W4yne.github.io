@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Yrsa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 :root {
     --background-color: #040404;
@@ -12,13 +16,14 @@
 html {
     overflow-y: initial;
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    background-color: #2c2c2c;
+    background-color: #c3c3c3;
 }
 
 @media (max-width: 75em) {
@@ -43,19 +48,49 @@ body {
 
     .primary-nav[visible-mobile="true"] {
         transform: translateX(0%);
-    }    
+        z-index: 100;
+    }
+
+    body .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body .images > a > img {
+        width: 500px;
+        height: 600px;
+    }
+    body .infoCards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body .card {
+        min-width: 70vw;
+        min-height: 60vh;
+    }
+
+    body .card > p {
+        font-size: 3vw;
+    }
+
+    body .link {
+        top: 50vh;
+    }
+
 }
 
 .hero-image {
     position: relative;
     height: 100vh;
-    background-image: url("img/DALL·E\ 2022-12-01\ 16.51.06\ -\ Beautiful\ trees\ and\ plants\ in\ front\ of\ luxury\ hotel\ .png");
+    background-image: url("img/heroImage.png");
     background-position: center, center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -3;
 }
-
 .wrapper {
     position: relative;
     width: 100%;
@@ -69,16 +104,36 @@ svg {
     transform: translateX(-50%); 
 }
 
-video {
-    width: 100%;
-    height: auto;
-    animation: pathAnimation 2.2s linear forwards;
+#btnNextSlide {
     position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
+    top: 90vh;
+    left: 50%;
+
+    transform: translate(-50%);
+    z-index: 100;
+    color: white;
+
+    padding: 20px;
+    font-size: 20px;
+
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 30q 30q 30q 30q;
+
+    animation: buttonFadeIn 1s linear forwards;
+    animation-delay: 3s;
+
+    opacity: 0;
+
+    transition: background-color 1s ease-in-out;
 }
 
+
+#btnNextSlide:hover,
+#btnNextSlide:focus {
+    background-color: white;
+    color: black;
+}
 
 #text-overlay > #title {
     font-size: 500px;
@@ -89,30 +144,28 @@ video {
     position: absolute;
     stroke-dashoffset: 2100;
     stroke-dasharray: 2100;
-    animation-name: animate;
+    animation-name: animateSVGA;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-delay: 1s;
 }
 
-@keyframes animate {
-    0% {stroke-dashoffset: 2100;}
-    100%{stroke-dashoffset: 0; fill: red}
-}
-
-@keyframes pathAnimation {
-    0% {clip-path: none; opacity: 0;}
-    90%{opacity: 0;}
-    100%{clip-path: path("M 135 319.2 L 81.6 468.6 L 130.2 474.6 A 35.048 35.048 0 0 1 131.202 480.314 Q 131.886 487.499 130.209 496.748 A 90.007 90.007 0 0 1 130.2 496.8 Q 104.213 495.563 83.897 495.176 A 911.964 911.964 0 0 0 66.6 495 A 705.513 705.513 0 0 0 58.577 495.057 Q 41.175 495.263 1.8 496.2 Q -1.793 485.421 1.786 474.642 A 37.741 37.741 0 0 1 1.8 474.6 L 41.4 467.4 Q 51 453 65.4 414 L 220.2 0 L 241.2 0 L 415.2 468.6 L 463.8 474.6 A 35.048 35.048 0 0 1 464.802 480.314 Q 465.486 487.499 463.809 496.748 A 90.007 90.007 0 0 1 463.8 496.8 Q 426 495 379.2 495 A 2567.612 2567.612 0 0 0 350.906 495.169 Q 338.203 495.309 323.977 495.567 A 5284.263 5284.263 0 0 0 294 496.2 Q 290.407 485.421 293.986 474.642 A 37.741 37.741 0 0 1 294 474.6 L 343.8 467.4 L 291 319.2 L 135 319.2 Z M 214.8 90.6 L 214.2 90.6 Q 207 118.8 190.8 164.4 L 145.8 289.2 L 280.2 289.2 L 236.4 164.4 Q 223.8 127.8 214.8 90.6 Z");}
+#info {
+    min-height: 100vh;
 }
 
 #background-text {
     position: absolute;
+    margin: 0;
+    top:100vh;
+    left: 50%;
+
+    transform: translate(-50%);
+
     opacity: 0.1;
     font-size: 150px;
-    top: -165px;
-    left: 36vw;
+    color: grey;
 }
 
 #title {
@@ -126,16 +179,12 @@ video {
     margin: 20px;
 }
 
-#intro {
-    position: relative;
-    height: 99vh;
-}
-
-#intro > p {
+#intro-text {
     position: relative;
     left: calc(50vw - 25ch);
     max-width: 50ch;
     text-align: center;
+    font-size: 20px;
 }
 
 .images {
@@ -144,21 +193,29 @@ video {
     justify-content: center;
 }
 
-.images > img {
-    width: 500px;
-    height: 600px;
+.images > a > img {
+    width: 25vw;
+    height: 50vh;
     margin: 55px 20px 0 20px;
 }
 
-h1, h2, h4,  a, p, span {
-    color: white;
-    font-family: "Yrsa", serif;
+.hoverInfo:hover {
+    border: 2px solid red;
 }
 
 
+h1, h2, h3, h4, a, p, span {
+    color: black;
+    font-family: "Yrsa", serif;
+}
+
+li > a {
+    color: white;
+}
 
 .primary-nav[visible-desktop="true"] {
     opacity: 1;
+    z-index: 100;
 }
 
 .nav-toggle {
@@ -211,7 +268,7 @@ h1, h2, h4,  a, p, span {
 .primary-nav {
     position: fixed;
     inset: 0 0 0 0;
-    z-index: 100;
+    z-index: -1;
 
     display: flex;
     flex-direction: column;
@@ -311,6 +368,250 @@ a:focus  {
     z-index: -10;
 }
 
+footer {
+    position: absolute;
+    height: 180px;
+    width: 100vw;
+
+    display: flex;
+
+    background-color: #15151e;
+    margin-top: auto;
+}
+
+.footer {
+    list-style: none;
+}
+
+#bodySecondary {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #c3c3c3;
+    z-index: -1;
+}
+
+#mainSecondary {
+    position: absolute;
+    top: 30vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#intro {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/img/restaurantHeroFront.png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: entrance 2s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+.heroImage {
+    position: absolute;
+    width: 100vw;
+    height: 30vh;
+    top: 0;
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+}
+
+.restaurant {
+    background-image: url("/img/restaurantHeroBanner.png");
+}
+
+.blur {
+    width: 100vw;
+    height: 30vh;
+    background-color: rgba(88, 88, 88, 0.35);
+    backdrop-filter: blur(0.3rem);
+    -webkit-backdrop-filter: blur(0.3rem);
+}
+
+.infoCards {
+    position: absolute;
+    top: 30vh;
+    min-height: 70vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    border-radius: 25q 0q 0q 0q;
+    z-index: -1;
+}
+
+.card {
+    box-sizing: border-box;
+    position: relative;
+    transform: translate(0, 25%);
+
+    width: 20vw;
+    height: 50vh;
+
+    box-shadow: 10px 5px 5px #525252;
+    background-color: #d8d8d8;
+}
+
+.card > p {
+    color: black;
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 20px;
+    max-width: 35ch;
+}
+
+#headerPage {
+    position: relative;
+    top: 5vh;
+    left: calc(50vw - 300px);
+    width: 600px;
+    height: 20vh;
+    background-color: rgba(188, 188, 188, 0.135);
+    margin: 0;
+    text-align: center;
+    line-height: 20vh;
+    font-size: 50px;
+}
+
+.headerCards {
+    color: black;
+    font-size: 40px;
+    text-align: center;
+}
+
+hr {
+    width: 70%;
+    height: 1px;
+    margin-top: 0;
+    border: none;
+    background-image: linear-gradient(to right, transparent, #898270, transparent);
+}
+
+.link {
+    position: fixed;
+    text-decoration: none;
+    top: 40vh;
+    left: 20px;
+    
+}
+
+span {
+    display: block;
+    color: black;
+    padding: 20px;
+    border: 2px solid black;
+    font-size: 20px;
+    min-width: 20ch;
+    text-align: center;
+}
+
+span:hover {
+    background-color: black;
+    color: white;
+}
+
+.booking {
+    background-image: url("/img/bookingBanner.png");
+}
+
+#text {
+    height: 35vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.backgroundText {
+    opacity: 0.3;
+    font-size: 150px;
+    margin: 15px 0 0 0;
+    color: grey;
+    line-height: 0.7;
+}
+
+.title {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 40px;
+    font-weight: 700;
+    margin:0
+}
+
+.main {
+    position: relative;
+    max-width: 85ch;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 0;
+    font-size: 18px;
+}
+
+#booking-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-row-gap: 60px;
+    margin-bottom: 100px;
+}
+
+.bookingCard {
+    position: relative;
+    left: 50%;
+    
+    height: 30vh;
+
+    box-shadow: 10px 10px 10px 10px #9a9a9a;
+    background-color: #ebebeb;
+}
+
+* > img {
+    position: relative;
+    margin-left: 180px;
+    height: 30vh;
+}
+
+#booking-cards > * > h1, 
+#booking-cards > * > p {
+    margin-left: 40px;
+    max-width: 45ch;
+}
+
+#info-rooms {
+    list-style: none;
+}
+
+#info-rooms > li {
+    opacity: 1;
+}
+
+#info-rooms > li > p {
+    border-bottom: 1px solid #dddd;
+    margin: 0px;
+    width: 20vw;
+}
+
+#info-rooms > li > p:hover {
+    background-color: #e1e1e1;
+}
+
+@keyframes entrance {
+    0% {opacity: 1; scale: 1; z-index: 1;}
+    90% {opacity: 0; scale: 2; z-index: -1;}
+    100%{opacity: 0; scale: 1; z-index: -5;}
+}
+
 @keyframes menu-circle{
     0% {width: 0; height: 0; opacity: 0;}
     25% {opacity: 1;}
@@ -323,4 +624,17 @@ a:focus  {
     100% {width: 140vh; height: 140vh; opacity: 0;}
 }
 
+@keyframes animateSVGA {
+    0% {stroke-dashoffset: 2100;}
+    100%{stroke-dashoffset: 0;}
+}
 
+@keyframes buttonFadeIn {
+    0% {opacity: 0;}
+    100%{opacity: 1}
+}
+
+@keyframes buttonBackground {
+    0%      {background-color: white; color: white}
+    100%    {background-color: white; color: black}
+}

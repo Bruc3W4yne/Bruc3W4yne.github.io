@@ -42,12 +42,13 @@ window.addEventListener("resize", function(event) {
     var visibleM = navBar.getAttribute("visible-mobile")
     var visibleD = navBar.getAttribute("visible-desktop")
 
-    console.log(visibleD, visibleM)
+    console.log(visibleD, visibleM, body.clientWidth)
 
     
     if(body.clientWidth < 1184 && visibleD === "true") {
         navBar.setAttribute("visible-desktop", false)
         listItem.forEach(list => list.classList.toggle("opacity"))
+        body.classList.toggle("no-scroll")
 
         navBars.forEach(element => element.classList.toggle("nav-close"))
         navCircle.classList.toggle("animate-circle")
@@ -56,6 +57,7 @@ window.addEventListener("resize", function(event) {
     } else if (body.clientWidth >= 1184 && visibleM === "true") {
         navBar.setAttribute("visible-mobile", false)
         listItem.forEach(list => list.classList.toggle("opacity"))
+        body.classList.toggle("no-scroll")
 
         navBars.forEach(element => element.classList.toggle("nav-close"))
     }
