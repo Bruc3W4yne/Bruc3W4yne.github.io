@@ -85,7 +85,7 @@ body {
 .hero-image {
     position: relative;
     height: 100vh;
-    background-image: url("img/heroImage.png");
+    background-image: url("../img/heroImage.png");
     background-position: center, center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -399,19 +399,6 @@ footer {
     grid-template-columns: 1fr;
 }
 
-#intro {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("/img/restaurantHeroFront.png");
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: entrance 2s ease-in-out forwards;
-    animation-delay: 2s;
-}
-
 .heroImage {
     position: absolute;
     width: 100vw;
@@ -482,6 +469,7 @@ footer {
     text-align: center;
     line-height: 20vh;
     font-size: 50px;
+    color: white;
 }
 
 .headerCards {
@@ -514,6 +502,7 @@ span {
     font-size: 20px;
     min-width: 20ch;
     text-align: center;
+    transition: background-color 500ms ease-in-out;
 }
 
 span:hover {
@@ -604,12 +593,6 @@ span:hover {
 
 #info-rooms > li > p:hover {
     background-color: #e1e1e1;
-}
-
-@keyframes entrance {
-    0% {opacity: 1; scale: 1; z-index: 1;}
-    90% {opacity: 0; scale: 2; z-index: -1;}
-    100%{opacity: 0; scale: 1; z-index: -5;}
 }
 
 @keyframes menu-circle{
