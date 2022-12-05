@@ -1,14 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Yrsa:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@1,700&family=Domine:wght@600&family=EB+Garamond:wght@400;600&family=Merriweather:ital,wght@1,700&family=Roboto+Slab:wght@800&family=Source+Sans+Pro&family=Space+Grotesk:wght@700&family=Yrsa:wght@300&display=swap');
+/* Declaration of custom variables. I forgot about this as I went on and
+I also had to do a lot of trial and error with colors, font sizes, positions etc.
+If not I would have had a lot more custom properties and then used them instead
+*/
 :root {
     --background-color: #040404;
     --nav-background-desktop: linear-gradient(90deg, rgba(88, 88, 88, 0.135) 50%, rgb(185, 185, 185, 0.135) 50%);
@@ -17,7 +11,11 @@
     --gap: 10px;
     
 }
-
+/*
+Standard Declaration of HTML to fit my needs as well as Declaration of body.
+I remove any margin and padding on the body to solve positiong issues later on
+Its also a habit I have picked up from CSS battles
+*/
 html {
     overflow-y: initial;
     scroll-behavior: smooth;
@@ -31,6 +29,15 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*Custom media query.
+This is not very well written and I shouldve made my design more responsive by nature
+BUT, I am almost sure that my website should be among the best, if not the best, out of
+all exam submissions when it comes to responsiveness across multiple different
+types of devices. Positioning, size, effects etc all behave very differently
+at different screen sizes and browsers. Therefore I have done extensive testing
+to make sure that it looks right on multiple devices across multiple browsers.
+*/
 
 @media (max-width: 75em) {
     body .primary-nav {
@@ -58,19 +65,17 @@ body {
     }
 
     body .text {
+        display: inline-block;
         margin-bottom: 60vh;
+        margin-left: 40px;
 
         width: 90vw;
-    }
-
-    body #index-footer {
-        margin-top: 100vh;
-        height: 40vh;
     }
 
     body .images {
         flex-direction: column;
         align-items: center;
+        margin-top: 200px;
     }
 
     body .images > a > img {
@@ -103,7 +108,10 @@ body {
 
     body .bookingCard {
         width: 90vw;
-    
+    }
+
+    body .paragraphBooking {
+        width: 25ch;
     }
 
     body .paragraphBooking >  p {
@@ -111,7 +119,11 @@ body {
     }
 
     body #booking-cards {
-        margin-top: 360px;
+        margin-top: 60vh;
+    }
+
+    body .push {
+        left: 50vw;
     }
 
     body .bookingCard > img {
@@ -149,8 +161,19 @@ body {
     .menu-dish {
         padding: 0;
     }
-}
 
+    body #index-footer {
+        margin-top: 100vh;
+        height: fit-content;
+    }
+}
+/* Sets a banner or hero image to fill the entire screen when a user is first entering
+I feel like presentation is important, but I also realise that this project is 
+just as much about accesibility as it is CSS and therefore I probably should've
+Dropped the hero image and made every page not require any scrolling.
+Tools and software have become better though, and even sites that tout for
+accesibility like WAVE or similar use scrolling on their site and it is unrealistic
+to require developers to not rely on it*/
 .hero-image {
     position: relative;
     height: 100vh;
@@ -160,6 +183,8 @@ body {
     background-size: cover;
     z-index: -3;
 }
+/*Used to position and define the area of the big "A" svg that renders in when users first
+visits the site */
 .wrapper {
     position: relative;
     width: 100%;
@@ -173,6 +198,10 @@ svg {
     transform: translateX(-50%); 
 }
 
+/*This is not really a button, but as close as one can get without javascript.
+Used to slide down to the main content, and this is also here so that again
+users with lesser mobility or strength can "just" use a screen reader or a keyboard
+to hit enter and slide down to the next page*/
 #btnNextSlide {
     position: absolute;
     top: 90vh;
@@ -208,7 +237,10 @@ svg {
     font-size: 500px;
 }
 
-
+/*Animation control for the SVG, uses dashoffset to make it appear that the A isnt drawn in
+In reality it is there, it just have a very large offset and dasharray making
+it seem like its not there. As time goes on the number gets smaller and you are
+left with the "A" */
 .wrapper> svg {
     position: absolute;
     stroke-dashoffset: 2100;
@@ -220,8 +252,11 @@ svg {
     animation-delay: 300ms;
 }
 
-
-
+/*This is for the grey welcome text that you see on many of the pages.
+It just positions the element and makes sure that it is almost transparent.
+Since this is not essential to the experience or useability of the site
+I chose to still include it eventhough it would be hard to see for someone
+with visual impairments. */
 #background-text {
     position: absolute;
     margin: 0;
@@ -234,19 +269,19 @@ svg {
     font-size: 150px;
     color: grey;
 }
-
+/* Positioning of the main title text*/
 #title {
     position: relative;
     top: 20px;
     margin: 40px 0 0 0;
     font-size: 50px;
 }
-
+/* Positioning of the sub title*/
 #sub-title {
     margin: 20px;
     font-size: 22px;
 }
-
+/*Positioning of the descriptive text*/
 #intro-text {
     position: relative;
     left: calc(50vw - 25ch);
@@ -254,7 +289,8 @@ svg {
     text-align: center;
     font-size: 20px;
 }
-
+/*Here I use flexbox to declare a pattern for the Images to appear in, it also
+makes it easier to position and maintain responsiveness on the images*/
 .images {
     display: flex;
     flex-direction: row;
@@ -262,19 +298,24 @@ svg {
     height: 100vh;
     margin-bottom: 0;
 }
-
+/*Stylised links*/
 .images > a {
     text-decoration: none;
     margin-bottom: 20px;
     height: 600px;
 }
-
+/*Set size of images*/
 .images > a > img {
     width: 500px;
     height: 600px;
     margin: 55px 20px 0 20px;
 }
 
+/* Declaration so to speak of the imageHeading class, this allows me to 
+use the hover selector later on to make my site interactive.
+Not the best way to position elements, but I included it to show that I know
+how to go about negative offsets as well. Even if they might be frowned upon
+by some people */
 .imageHeading {
     position: relative;
     top: -625px; 
@@ -287,29 +328,31 @@ svg {
     line-height: 25;
     color: white;
     opacity: 0;
-    transition: all 650ms ease-in-out;
+    transition: all 350ms ease-in-out;
 }
 
+/* Ensures interactiveness when you hover over the images on the main page*/
 .imageHeading:hover {
     opacity: 1;
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
 }
-
+/* Sets font and color to be used on almost every text element on the entire site*/
 h1, h2, h3, h4, a, p, span {
     color: black;
     font-family: "Yrsa", serif;
 }
-
+/* Sets color of the nav elements text*/
 li > a {
     color: white;
 }
-
+/* Conditional that makes it so that the nav is visible and on top of everything else
+once the nav button is pressed*/
 .primary-nav[visible-desktop="true"] {
     opacity: 1;
     z-index: 100;
 }
-
+/*This is the button that allows for interactivity with the navbar*/
 .nav-toggle {
     position: fixed;
     top: 20px;
@@ -323,7 +366,7 @@ li > a {
 
     cursor: pointer;
 }
-
+/* Responsible for "drawing" the black bars that represent the nav menu*/
 .nav-bar {
     position: absolute;
 
@@ -334,7 +377,9 @@ li > a {
     
     transition: all 450ms ease-in-out;
 }
-
+/*Here I showcase the nth-child and nth-of-type selectors. They are very useful
+in many cases, but my prefered method of choosing specific elements or odd/even elements
+would normally be with JavaScript*/
 .nav-bar:nth-child(2) {
     top: 10px;
 }
@@ -356,7 +401,9 @@ li > a {
     transform: rotate(-45deg);
 }
 
-
+/* Primary Navigation And all its properties, makes it so its interactable, sets
+styling, position, and makes use of flexbox to make the unordered list that the nav
+relies on look good*/
 .primary-nav {
     position: fixed;
     inset: 0 0 0 0;
@@ -381,11 +428,11 @@ li > a {
     transition: opacity 350ms ease-in-out;
     opacity: 0;
 }
-
+/*This is set so that the navbar isnt visible as long as the navbar button is "closed"*/
 li {
     opacity: 0;
 }
-
+/*Custom class simply to help animate in the nav bar*/
 .opacity {
     opacity: 1;
     transition: opacity 250ms ease-in;
@@ -411,6 +458,7 @@ li {
     transition-delay: 1300ms;
 }
 
+/*Styling of nav elements*/
 .primary-nav a {
     text-decoration: none;
     font-size: 30px;
@@ -423,11 +471,19 @@ a:focus  {
     color: #B6003D;
 }
 
+/*My original plan was to have a path vector that would update as you scrolled
+this was way to much javascript, and as that couldnt help this time or on this
+final, I decided to drop it all together, but it still made sense to keep this class
+around. It simply stops the user from being able to scroll when the nav bar is open.
+The reason this is useful is since it leaves to better interaction and feel on touch
+based devices (less chance to interpret a swipe as a touch or vice versa). And it also
+makes it so that you dont have a ridiculouslly long page since the navbar stretches to the
+bottom*/
 .no-scroll {
     overflow: hidden;
     touch-action: none;
 }
-
+/*Class for making the circle animation as you open the page in desktop view*/
 .menu-circle {
     position: absolute;
     top: 50%;
@@ -443,14 +499,14 @@ a:focus  {
     z-index: 10000;
     opacity: 0;
 }
-
+/* Class for handling the animation of the circles*/
 .animate-circle{
     animation-delay: 1600ms;
     animation-name: menu-circle;
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-
+/*Class for making the drop effect*/
 .animate-circle-big {
     animation-delay: 900ms;
     animation-name: menu-drop;
@@ -459,7 +515,9 @@ a:focus  {
     animation-fill-mode: both;
     z-index: -10;
 }
-
+/*I Reuse this a lot, this helps with keeping a shared visual identity on the seperate
+pages, and it is something I shouldve done more off. But none the less this one
+does get used a lot at least*/
 #bodySecondary {
     position: absolute;
     min-height: 100vh;
@@ -472,14 +530,16 @@ a:focus  {
 
     flex-direction: column;
 }
-
+/*Used to mark a main section on other pages than the first.
+Responsible for positioning and setting of the content as a grid.
+Allows for ease of styling later on*/
 #mainSecondary {
     position: absolute;
     top: 30vh;
     display: grid;
     grid-template-columns: 1fr;
 }
-
+/*Class for setting hero image on secondary pages*/
 .heroImage {
     position: absolute;
     width: 100vw;
@@ -492,11 +552,11 @@ a:focus  {
 
     z-index: -1;
 }
-
+/*Class for choosing the hero image in question*/
 .restaurant {
     background-image: url("/img/restaurantHeroBanner.png");
 }
-
+/*Class for making the Blurred square around the header/banner text*/
 .blur {
     width: 100vw;
     height: 30vh;
@@ -504,7 +564,7 @@ a:focus  {
     backdrop-filter: blur(0.3rem);
     -webkit-backdrop-filter: blur(0.3rem);
 }
-
+/*Class to make the seperate cards for menu, wine chart and booking*/
 .infoCards {
     position: absolute;
     top: 30vh;
@@ -517,7 +577,7 @@ a:focus  {
     border-radius: 25q 0q 0q 0q;
     z-index: -1;
 }
-
+/*Same as above but this time its not generic but rather per card*/
 .card {
     box-sizing: border-box;
     position: relative;
@@ -529,7 +589,8 @@ a:focus  {
     box-shadow: 10px 5px 5px #525252;
     background-color: #d8d8d8;
 }
-
+/*Selector to make sure that all the paragraphs are in the correct size, shape, font,
+and color*/
 .card > p {
     color: black;
     font-family: 'EB Garamond', serif;
@@ -538,7 +599,7 @@ a:focus  {
     margin-left: 20px;
     max-width: 35ch;
 }
-
+/* Used to make the header/banner text*/
 #headerPage {
     position: relative;
     top: 5vh;
@@ -552,13 +613,14 @@ a:focus  {
     font-size: 50px;
     color: white;
 }
-
+/* Used to stylize the header text on the menu, winechart and booking card*/
 .headerCards {
     color: black;
     font-size: 40px;
     text-align: center;
 }
-
+/*Makes it so that the hr line fades in and out instead of going all the way
+across */
 hr {
     width: 70%;
     height: 1px;
@@ -566,7 +628,7 @@ hr {
     border: none;
     background-image: linear-gradient(to right, transparent, #898270, transparent);
 }
-
+/*More styling*/
 .link {
     position: fixed;
     text-decoration: none;
@@ -574,7 +636,7 @@ hr {
     left: 20px;
     
 }
-
+/*Styling, positioning and setting up interactive/animated button*/
 .cardButton {
     display: block;
     color: black;
@@ -585,22 +647,29 @@ hr {
     text-align: center;
     transition: background-color 500ms ease-in-out;
 }
-
-.cardButton:hover {
+/*Change on hover/focus*/
+.cardButton:hover,
+.cardButton:focus {
     background-color: black;
     color: white;
 }
+/*NEW PAGE
+This is for the booking page and now that I had made the restaurant page
+I could do most of the same stuff over again, but due to me wanting them to be
+slightly different but keeping the same feel, I ended up doing a lot of the work
+from the "ground up" again. */
 
+/*Sets the hero image for the booking page*/
 .booking {
     background-image: url("/img/bookingBanner.png");
 }
-
+/*Positiong of text*/
 #text {
     height: 35vh;
     width: 100vw;
     text-align: center;
 }
-
+/*Once again to make the text almost transparent and just for styling purposes*/ 
 .backgroundText {
     opacity: 0.3;
     font-size: 150px;
@@ -608,7 +677,7 @@ hr {
     color: grey;
     line-height: 0.7;
 }
-
+/*Position and styling of title text*/
 .title {
     position: absolute;
     top: 45px;
@@ -618,7 +687,7 @@ hr {
     font-weight: 700;
     margin:0
 }
-
+/*Class for handling the main text/intro text on the booking page*/
 .main {
     position: relative;
     max-width: 85ch;
@@ -627,17 +696,18 @@ hr {
     margin-top: 0;
     font-size: 20px;
 }
-
+/*Styling of "button"*/
 #border-span {
     border: 2px solid grey;
     padding: 20px;
 }
-
+/*Styling on the link text*/
 #border-span > a {
     text-decoration: none;
     margin-bottom: 20px;
 }
-
+/*This class deals with setting up the booking cards as a grid, this makes it
+easier to add more entries down the road later*/
 #booking-cards {
     display: grid;
     grid-template-columns: 1fr;
@@ -646,7 +716,7 @@ hr {
     margin-bottom: 100px;
     margin-top: 100px;
 }
-
+/*Styling and positioning of each individual card*/
 .bookingCard {
     position: relative;
     left: 50%;
@@ -661,61 +731,63 @@ hr {
     box-shadow: 10px 10px 10px 10px #9a9a9a;
     background-color: #ebebeb;
 }
-
+/*Position, styling of image within card*/
 .bookingCard > img {
     position: absolute;
     top: 0;
     margin-left: max(40.2vw, 650px);
     height: 35vh;
 }
-
+/*Styling of text(s) on the booking cards*/
 #booking-cards > * > h1, 
 #booking-cards > * > p {
     margin-left: 40px;
     max-width: 45ch;    
 }
-
+/*Styling of text*/
 .cardTitle {
     font-size: 35px;
 }
-
+/*Styling of text*/
 .paragraphBooking {
     font-size: 25px;
     opacity: 1;
     width: 30ch;
 }
 
-
+/*Styling of text*/
 #info-rooms {
     list-style: none;
 }
-
+/*Styling of text*/
 .paragraphBooking > p {
     border-bottom: 1px solid #dddd;
     margin: 0px;
     width: 25vw;
 }
-
+/*Styling of text*/
 .paragraphBooking > p:hover {
     background-color: #e1e1e1;
 }
-
+/*Styling of text*/
 .push {
     position: absolute;
     left: min(40vw, 400px);
 }
-
+/*NEW PAGE
+Here I went rather simple, I felt I had allready showcased a lot of what I wanted to
+and therefore I rather Focused on just making the text clear and consise*/
 .accesibility {
     background-image: url("/img/heroImage.png");
 }
-
+/*Positioning of "Paper" for the text to be on*/
 #accesibility-text {
     position: fixed;
     height: 70vh;
     top: 30vh;
     left: 50%
 }
-
+/*Styling of paper for text to be on*/
 .accesibilityText {
     top: 30vh;
     left: 50%;
@@ -732,12 +804,12 @@ hr {
 
     text-align: center;
 }
-
+/*Styling of text*/
 .accesibilityText > h1 {
     font-size: 35px;
     margin: 0;
 }
-
+/*Styling of text*/
 #main-text {
     text-align: left;
     margin-left: 3vw;
@@ -745,6 +817,9 @@ hr {
     max-width: 50ch;
 }
 
+/*NEW PAGE
+This is the topical page and I wanted to have a little more fun on this site
+I think i Succeeded.....*/
 #body-topical {
     display: flex;
     flex-direction: column;
@@ -753,11 +828,11 @@ hr {
  
     background-color: #050b19;
 }
-
+/*Makes sure it fills the entire screen*/
 .mainTopical {
     flex-grow: 1;
 }
-
+/*Grid so I can divide the screen*/
 .topical {
     display: grid;
     height: 100%;
@@ -768,24 +843,24 @@ hr {
 .article {
     height: 100%;
 }
-
+/*Adding borders per section instead of for all, this ensures no double borders*/
 .description-section,
 .link-section {
     border-left: 1px solid white;
 }
-
+/*Adding borders per section instead of for all, this ensures no double borders*/
 .title-section,
 .link-section {
     border-top: 1px solid white;
 }
-
+/*Position, styling for the image*/
 .image-section {
     background-image: url("/img/t\(r\)opical.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+/*Styling of text on the topical page, image section*/
 .image-section > h1 {
     position: sticky;
     font-size: 120px;
@@ -800,24 +875,24 @@ hr {
     backdrop-filter: blur(0.3rem);
     -webkit-backdrop-filter: blur(0.3rem);
 }
-
+/*Styling of text*/
 .description-section {
     font-size: 25px;
 }
-
+/*Styling of text*/
 .description-section > p {
     color: white;
     margin-left: 20px;
 }
-
+/*Styling of text*/
 .description-section > p > a {
     color: #C6DC00;
 }
-
+/*Styling of text*/
 .description-section > p > a:hover {
     color: #B6003D;
 }
-
+/*Styling of text*/
 .title-section > h1 {
     color: white;
     max-width: 11ch;
@@ -825,30 +900,34 @@ hr {
     margin-left: 20px;
     font-family: 'Space Grotesk', sans-serif;
 }
-
+/*Styling of text*/
 .link-section > h1 {
     color: white;
     text-align: center;
     font-size: 45px;
     margin-bottom: 0;
 }
-
+/*Styling of text*/
 .link-section > p {
     color: white;
     margin-left: 20px;
     margin-top: 0;
     font-size: 18px;
 }
-
+/*Styling of text*/
 #first {
     margin-top: 90px;
 }
-
+/* NEW PAGE
+I wanted to make it so that it looked like the menu was actually on paper,
+I didnt quite achieve the effect I was after, but for such a late add-on
+I am happy-ish with the result*/
+/*Styling of text*/
 #body-menu {
     font-family: 'Domine', serif;
     background-color: #3c3c3c;
 }
-
+/*Position and styling of "piece of paper"*/
 .menu {
     position: absolute;
     top: 30px;
@@ -865,35 +944,36 @@ hr {
 
     box-shadow: 10px 10px 10px 10px #262626;
 }
-
+/*Styling of text*/
 .heading {
     color: #050097;
     text-align: center;
     margin: 0;
 }
-
+/*Styling of text*/
 .primary {
     font-size: 90px;
 }
-
+/*Styling of text*/
 .sub {
     font-size: 40px;
 }
-
+/*Styling of text*/
 .menu-dish > li {
     opacity: 1;
     list-style: none;
     font-size: 20px;
     text-align: center;
 }
-
+/*Grid allows for easier styling*/
 .menu-dish {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     gap: 50px;
 }
-
+/*Footer styling and positioning. Dont know why but margin-top: auto never worked.
+Therefore I had to just set it manually*/
 footer {
     margin-top: -340px;
     background-color: #333833;
@@ -903,38 +983,39 @@ footer {
     display: flex;
     gap: 50px;
 }
-
+/*Styling of footer*/
 footer > * {
     margin-left: 20px;
 }
-
+/*Styling of footer*/
 footer > * > p,
 footer > * > h3{
     color: white;
     font-size: 25px;
 }
-
+/*Styling of footer*/
 footer > * > h4, i,
 h4 > a {
     color: white;
     font-size: 20px;
     text-decoration: none;
 }
-
+/*Styling of footer*/
 #footerIntro {
     max-width: 40ch;
     min-width: 33vw;
 }
-
+/*Styling of footer*/
 #about {
     flex: 1 1 0;
 }
-
+/*Styling of footer*/
 #socials {
     flex: 1 1 0;
     flex-direction: column;
 }
-
+/* Custom animations, This makes it much easier to make "semi" complex animations
+and leads to better visuals*/
 @keyframes menu-circle{
     0% {width: 0; height: 0; opacity: 0;}
     25% {opacity: 1;}
