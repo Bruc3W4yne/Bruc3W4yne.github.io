@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
 
 :root {
     --background-color: #040404;
@@ -16,7 +21,6 @@
 html {
     overflow-y: initial;
     scroll-behavior: smooth;
-    min-height: 100%;
 }
 
 body {
@@ -24,6 +28,8 @@ body {
     padding: 0px;
     overflow-x: hidden;
     background-color: #c3c3c3;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 75em) {
@@ -48,7 +54,18 @@ body {
 
     .primary-nav[visible-mobile="true"] {
         transform: translateX(0%);
-        z-index: 100;
+        z-index: 1000;
+    }
+
+    body .text {
+        margin-bottom: 60vh;
+
+        width: 90vw;
+    }
+
+    body #index-footer {
+        margin-top: 100vh;
+        height: 40vh;
     }
 
     body .images {
@@ -73,13 +90,65 @@ body {
     }
 
     body .card > p {
-        font-size: 3vw;
+        font-size: 5vw;
     }
 
     body .link {
         top: 50vh;
     }
 
+    body .title {
+        min-width: 55ch;
+    }
+
+    body .bookingCard {
+        width: 90vw;
+    
+    }
+
+    body .paragraphBooking >  p {
+        width: 60vw;
+    }
+
+    body #booking-cards {
+        margin-top: 360px;
+    }
+
+    body .bookingCard > img {
+        opacity: 0;
+    }
+
+    body .accesibilityText {
+        width: 70vw;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    body .image-section,
+    body .title-section {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+
+    body .topical {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    body .link-section {
+        height: 50vh;
+        padding-bottom: 150px;
+    }
+
+    body .menu {
+        width: 100vw;
+        
+    }
+
+    .menu-dish {
+        padding: 0;
+    }
 }
 
 .hero-image {
@@ -148,12 +217,10 @@ svg {
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    animation-delay: 300ms;
 }
 
-#info {
-    min-height: 100vh;
-}
+
 
 #background-text {
     position: absolute;
@@ -191,18 +258,42 @@ svg {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+.images > a {
+    text-decoration: none;
+    margin-bottom: 20px;
+    height: 600px;
 }
 
 .images > a > img {
-    width: 25vw;
-    height: 50vh;
+    width: 500px;
+    height: 600px;
     margin: 55px 20px 0 20px;
 }
 
-.hoverInfo:hover {
-    border: 2px solid red;
+.imageHeading {
+    position: relative;
+    top: -625px; 
+    left: 20px;
+    width: 500px;
+    height: 600px;
+    background-color: rgba(88, 88, 88, 0.35);
+
+    text-align: center;
+    line-height: 25;
+    color: white;
+    opacity: 0;
+    transition: all 650ms ease-in-out;
 }
 
+.imageHeading:hover {
+    opacity: 1;
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+}
 
 h1, h2, h3, h4, a, p, span {
     color: black;
@@ -370,12 +461,15 @@ a:focus  {
 
 #bodySecondary {
     position: absolute;
-    height: 100%;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+
     display: flex;
 
     background-color: #c3c3c3;
     z-index: -1;
+
+    flex-direction: column;
 }
 
 #mainSecondary {
@@ -540,6 +634,7 @@ hr {
 
 #border-span > a {
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 #booking-cards {
@@ -558,8 +653,8 @@ hr {
     transform: translate(-50%);
     
     min-height: 35vh;
-    max-width: 50vw;
-    margin: 0;
+    width: 60vw;
+    margin: 20px 0px 0px 0px;
     padding: 0;
 
     box-shadow: 10px 10px 10px 10px #9a9a9a;
@@ -569,7 +664,7 @@ hr {
 .bookingCard > img {
     position: absolute;
     top: 0;
-    margin-left: calc(50vw - 35vh);
+    margin-left: max(40.2vw, 650px);
     height: 35vh;
 }
 
@@ -597,7 +692,7 @@ hr {
 .paragraphBooking > p {
     border-bottom: 1px solid #dddd;
     margin: 0px;
-    width: 30vw;
+    width: 25vw;
 }
 
 .paragraphBooking > p:hover {
@@ -614,7 +709,7 @@ hr {
 }
 
 #accesibility-text {
-    position: absolute;
+    position: fixed;
     height: 70vh;
     top: 30vh;
     left: 50%
@@ -626,8 +721,8 @@ hr {
 
     transform: translate(-50%);
 
-    width: 25vw;
-    height: 37vw;
+    min-width: 25vw;
+    min-height: 37vw;
     margin-top: 20px;
     margin-bottom: 20px;
 
@@ -644,9 +739,198 @@ hr {
 
 #main-text {
     text-align: left;
-    margin-left: 30px;
+    margin-left: 3vw;
     font-size: 20px;
     max-width: 50ch;
+}
+
+#body-topical {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+ 
+    background-color: #050b19;
+}
+
+.mainTopical {
+    flex-grow: 1;
+}
+
+.topical {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+}
+
+.article {
+    height: 100%;
+}
+
+.description-section,
+.link-section {
+    border-left: 1px solid white;
+}
+
+.title-section,
+.link-section {
+    border-top: 1px solid white;
+}
+
+.image-section {
+    background-image: url("/img/t\(r\)opical.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-section > h1 {
+    position: sticky;
+    font-size: 120px;
+    text-align: center;
+    top: 30%;
+    left: 20%;
+
+    width: fit-content;
+
+    color: white;
+    background-color: rgba(88, 88, 88, 0.35);
+    backdrop-filter: blur(0.3rem);
+    -webkit-backdrop-filter: blur(0.3rem);
+}
+
+.description-section {
+    font-size: 25px;
+}
+
+.description-section > p {
+    color: white;
+    margin-left: 20px;
+}
+
+.description-section > p > a {
+    color: #C6DC00;
+}
+
+.description-section > p > a:hover {
+    color: #B6003D;
+}
+
+.title-section > h1 {
+    color: white;
+    max-width: 11ch;
+    font-size: 90px;
+    margin-left: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.link-section > h1 {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 0;
+}
+
+.link-section > p {
+    color: white;
+    margin-left: 20px;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+#first {
+    margin-top: 90px;
+}
+
+#body-menu {
+    font-family: 'Domine', serif;
+    background-color: #3c3c3c;
+}
+
+.menu {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 40vw;
+    height: 95vh;
+
+    background-image: url("/img/Paper_Bone.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-shadow: 10px 10px 10px 10px #262626;
+}
+
+.heading {
+    color: #050097;
+    text-align: center;
+    margin: 0;
+}
+
+.primary {
+    font-size: 90px;
+}
+
+.sub {
+    font-size: 40px;
+}
+
+.menu-dish > li {
+    opacity: 1;
+    list-style: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.menu-dish {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+}
+
+footer {
+    margin-top: -340px;
+    background-color: #333833;
+    height: 24vh;
+    width: 100vw;
+
+    display: flex;
+    gap: 50px;
+}
+
+footer > * {
+    margin-left: 20px;
+}
+
+footer > * > p, h3 {
+    color: white;
+    font-size: 25px;
+}
+
+footer > * > h4, i,
+h4 > a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#footerIntro {
+    max-width: 40ch;
+    min-width: 33vw;
+}
+
+#about {
+    flex: 1 1 0;
+}
+
+#socials {
+    flex: 1 1 0;
+    flex-direction: column;
 }
 
 @keyframes menu-circle{

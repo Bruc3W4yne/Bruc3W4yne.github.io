@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67cf5c56fa.js" crossorigin="anonymous"></script> 
      
     <title>A pour l'effort</title>
-    <script src="/script/nav.js" defer></script>
+    <script src="script/nav.js" defer></script>
 </head>
 
 <body id="Front-page">
@@ -38,7 +39,7 @@
         </div>
     </div>
 
-    <a id="btnNextSlide" aria-label="Takes you to more info" aria-describedby="Button that slides the page focus down to more info about our hotel" href="#info">View More</a>
+    <a id="btnNextSlide" aria-label="Button that slides the page focus down to more info about our hotel" href="#info">View More</a>
 
     <button class="nav-toggle"aria-controls="primary-navigation" aria-expanded="false" aria-label="Navigation">
         <div class="nav-bar" ></div>
@@ -73,7 +74,7 @@
         </ul>
     </nav>
 
-    <main>
+    <main id="mainIndex">
         <article id="info" aria-label="about-us">
             <section class="text">
                 <h1 id="background-text">Welcome</h1>
@@ -88,19 +89,44 @@
 
             <div class="images">
                 <a href="booking.html">
-                    <img class="hoverInfo" src="/img/conference.png">
+                    <img src="/img/conference.png" alt="Picture of conference Room">
+                    <h2 class="imageHeading">Booking</h1>
                 </a>
                 <a href="booking.html">
-                    <img class="hoverInfo" src="/img/hotelroom.png">
+                    <img src="/img/hotelroom.png" alt="Picture of hotel Room">
+                    <h2 class="imageHeading">Hotelrooms</h1>
                 </a>
                 <a href="menu.html">
-                    <img class="hoverInfo" src="/img/restaurant.png">
+                    <img src="/img/restaurant.png" alt="Picture of Restaurant">
+                    <h2 class="imageHeading">Restaurant</h1>
                 </a>
                 <a href="booking.html">
-                    <img class="hoverInfo" src="/img/wedding.png">
+                    <img src="/img/wedding.png" alt="Picture of Wedding Ball">
+                    <h2 class="imageHeading">Wedding Ball</h1>
                 </a>
             </div>
         </article>
     </main>
+    <footer id="index-footer">
+        <div id="footerIntro">
+            <h3>About Us</h3>
+            <p>Welcome to A Pour l'Effort. We take great pride in our services.
+                We hope that you will enjoy your stay and look forward to seeing you.
+                Here you will find some useful links to get you started on a reservation.
+            </p>
+        </div>
+        <div id="about">
+            <h3>About Us</h3>
+            <h4><a href="booking.html">Booking</a></h4>
+            <h4><a href="restaurant.html">Restaurant</a></h4>
+            <h4><a href="menu.html">Our Menu</a></h4>
+        </div>
+        <div id="socials">
+            <h3>Socials</h3>
+            <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
