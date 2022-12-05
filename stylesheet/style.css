@@ -244,6 +244,7 @@ svg {
 
 #sub-title {
     margin: 20px;
+    font-size: 22px;
 }
 
 #intro-text {
@@ -907,7 +908,8 @@ footer > * {
     margin-left: 20px;
 }
 
-footer > * > p, h3 {
+footer > * > p,
+footer > * > h3{
     color: white;
     font-size: 25px;
 }
