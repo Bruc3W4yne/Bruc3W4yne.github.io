@@ -64,18 +64,40 @@ to make sure that it looks right on multiple devices across multiple browsers.
         z-index: 1000;
     }
 
+    body svg {
+        transform-origin: left;
+        scale: 0.5;
+        margin-top: -170px;
+    }
+
+    body #btnNextSlide {
+        position: absolute;
+        top: 85vh;
+        left: 48vw;
+        margin-top: 0;
+        color: white;
+        font-size: 25px;
+    }
+
     body .text {
         display: inline-block;
-        margin-bottom: 60vh;
-        margin-left: 40px;
+        text-align: center;
+        margin: 60px 0px 60vh 0px;
 
         width: 90vw;
+    }
+
+    body .text > #intro-text {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        margin-left: min(6vw, 10vh);
     }
 
     body .images {
         flex-direction: column;
         align-items: center;
-        margin-top: 200px;
+        margin-top: 100vw;
     }
 
     body .images > a > img {
@@ -89,17 +111,34 @@ to make sure that it looks right on multiple devices across multiple browsers.
         align-items: center;
     }
 
+    body .headerCards {
+        margin: 0;
+    }
+
     body .card {
         min-width: 70vw;
-        min-height: 60vh;
+        min-height: min(90vh, 150vw);
     }
 
     body .card > p {
-        font-size: 5vw;
+        font-size: 1px;
+    }
+
+    body .card > p {
+        font-size: min(5vw, 5vh);
+        max-width: 50ch;
+        margin: 0px 0px 0px 20px;
     }
 
     body .link {
         top: 50vh;
+        margin-top: 100px;
+    }
+
+    body .cardButton {
+        position: absolute;
+        top: -25px;
+        width: 20vw;
     }
 
     body .title {
@@ -130,10 +169,14 @@ to make sure that it looks right on multiple devices across multiple browsers.
         opacity: 0;
     }
 
-    body .accesibilityText {
-        width: 70vw;
-        left: 50%;
-        transform: translate(-50%);
+    body #bodySecondary {
+        overflow:visible;
+        min-height: 100vh;
+    }
+
+    body #accesibility-text {
+        position: absolute;
+        width: 90vw;
     }
 
     body .image-section,
@@ -163,7 +206,7 @@ to make sure that it looks right on multiple devices across multiple browsers.
     }
 
     body #index-footer {
-        margin-top: 100vh;
+        margin-top: max(100vh, 176vw);
         height: fit-content;
     }
 }
